@@ -21,7 +21,8 @@
   },
   "homepage": "https://github.com/jluong23/vr-portfolio#readme",
   "dependencies": {
-    "aframe": "^1.4.1"
+    "aframe": "^1.4.1",
+    "aframe-environment-component": "^1.3.2"
   },
   "devDependencies": {
     "prettier": "^2.8.4",
