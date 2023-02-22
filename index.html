@@ -1,0 +1,64 @@
+<html>
+  <head>
+    <script src="https://aframe.io/releases/1.4.0/aframe.min.js"></script>
+    <!-- https://github.com/supermedium/superframe -->
+    <script src="https://unpkg.com/aframe-template-component@3.2.1/dist/aframe-template-component.min.js"></script>
+    <script src="https://unpkg.com/aframe-environment-component@1.3.1/dist/aframe-environment-component.min.js"></script>
+    <script src="https://unpkg.com/aframe-state-component@7.1.0/dist/aframe-state-component.min.js"></script>
+    <!-- https://github.com/c-frame/aframe-extras -->
+    <script src="https://cdn.jsdelivr.net/gh/c-frame/aframe-extras@fb96ab2/dist/aframe-extras.min.js"></script>
+    <script src="./src/index.js" type="module"></script>
+    <script src="./src/utils.js" type="module"></script>
+    <style>
+      a-scene {
+        z-index: 1;
+        position: absolute;
+        width: 100vw;
+        height: 100vh;
+      }
+    </style>
+  </head>
+  <body>
+    <a-scene change-vr-mode-listener>
+      <a-assets> </a-assets>
+      <!-- environment -->
+      <a-entity id="environment">
+        <a-entity environment="preset: starry; dressingAmount: 30;"></a-entity>
+        <a-light type="ambient" intensity="0.3"></a-light>
+      </a-entity>
+      <a-entity id="objects">
+        <a-entity template="src: ./src/templates/menu.html"></a-entity>
+      </a-entity>
+
+      <!-- main orbital camera -->
+      <a-entity id="cameraRig" movement-controls position="0 1.6 0">
+        <a-entity
+          id="orbit-and-vr-camera"
+          camera
+          look-controls
+          movement-controls
+        >
+          <a-entity
+            raycaster="objects: .clickable;"
+            cursor="rayOrigin: mouse;"
+          ></a-entity>
+        </a-entity>
+        <a-entity
+          id="leftHand"
+          hand-controls="hand: left"
+          laser-controls
+          raycaster="objects: .clickable"
+        >
+        </a-entity>
+        <a-entity
+          id="rightHand"
+          hand-controls="hand: right"
+          thumbstick-turn="#cameraRig"
+          laser-controls
+          raycaster="objects: .clickable"
+        >
+        </a-entity>
+      </a-entity>
+    </a-scene>
+  </body>
+</html>
