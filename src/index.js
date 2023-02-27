@@ -1,6 +1,8 @@
 // import "aframe-state-component"; //components are loaded, but state is not registered properly via npm
 import "aframe-template-component";
 import "aframe-environment-component";
+import "aframe-proxy-event-component";
+import "aframe-event-set-component";
 import "./utils";
 ////////////////////////////////////
 // STATE

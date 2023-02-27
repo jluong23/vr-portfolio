@@ -1,3 +1,22 @@
-<a-plane position="0 1.6 -3">
-  <a-entity bind__text="value: inVR" text="align: center; width: 5;"></a-entity>
+<a-entity id="welcome-text" position="-1 0 0">
+  <a-entity
+    position="0 .4 0"
+    text="value: Welcome to my portfolio; align: center; width: 5;"
+  ></a-entity>
+
+  <a-entity
+    position="0 -.1 0"
+    text="value: James Luong; align: center; width: 5;"
+  ></a-entity>
+</a-entity>
+<a-plane
+  position="1 0 0"
+  class="clickable"
+  scale-onmouse-hover="newScale: 1.2 1.2 1.2;"
+  event-set__click="_target: #sky; _delay: 300; material.src: #sechelt"
+  event-set__hide="_event: click; visible: false"
+  event-set__hidetext="_target: #welcome-text; _event: click; visible: false"
+  proxy-event="event: click; to: #sky; as: fade"
+>
+  <a-entity text="value: START; align: center; width: 5;"></a-entity>
 </a-plane>

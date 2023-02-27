@@ -22,6 +22,8 @@
   "homepage": "https://github.com/jluong23/vr-portfolio#readme",
   "dependencies": {
     "aframe-environment-component": "^1.3.2",
+    "aframe-event-set-component": "^5.0.0",
+    "aframe-proxy-event-component": "^2.1.0",
     "aframe-state-component": "7.1.0",
     "aframe-template-component": "^3.2.1"
   },

@@ -47,6 +47,40 @@ AFRAME.registerComponent("change-vr-mode-listener", {
   },
 });
 
+window.AFRAME.registerComponent("click-listener", {
+  init: function () {
+    this.el.addEventListener("click", (e) => {
+      console.log("test");
+    });
+  },
+});
+
+/**
+ * Attaches a scale animation to an object on mouseenter and mouseleave.
+ */
+window.AFRAME.registerComponent("scale-onmouse-hover", {
+  setScale: function (scale) {
+    this.el.setAttribute(
+      "animation",
+      `property: scale; to: ${scale}; dur: 250;`
+    );
+  },
+  schema: {
+    newScale: { type: "string" },
+  },
+  init: function () {
+    let originalScale = this.el.object3D.scale;
+    let originalScaleString = `${originalScale.x} ${originalScale.y} ${originalScale.y}`;
+
+    this.el.addEventListener("mouseenter", (e) => {
+      this.setScale(this.data.newScale);
+    });
+    this.el.addEventListener("mouseleave", (e) => {
+      this.setScale(originalScaleString);
+    });
+  },
+});
+
 //snap turn implementation, turning a cameraRig in VR by Pi/3 radians (30 degrees)
 AFRAME.registerComponent("snap-turn", {
   schema: {
